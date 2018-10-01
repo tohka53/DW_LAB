@@ -1,0 +1,38 @@
+<form class="emp-form"#employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="id_empleado" #id_empleado="ngModel" [(ngModel)]="employeeService.selectedEmployee.id_empleado">
+ 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <input class="form-control" name="nombre" #Nombre="ngModel" [(ngModel)]="employeeService.selectedEmployee.nombre" placeholder="Nombre" required>
+    <div class="validation-error" *ngIf="Nombre.invalid && Nombre.touched">Campo Requerido.</div>
+
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="apellido" #Apellido="ngModel" [(ngModel)]="employeeService.selectedEmployee.apellido"placeholder="Apellido" required>
+      <div class="validation-error" *ngIf="Apellido.invalid && Apellido.touched">Campo Requerido.</div>
+  
+      </div>
+      <div class="form-group col-md-12">
+        <input class="form-control" name="codigo_empleado" #CodigoEmpleado="ngModel" [(ngModel)]="employeeService.selectedEmployee.codigo_empleado"placeholder="Codigo Empleado" required>
+        <div class="validation-error" *ngIf="CodigoEmpleado.invalid && CodigoEmpleado.touched">Campo Requerido.</div>
+    
+        </div>
+        <div class="form-group col-md-6">
+          <input class="form-control" name="posicion" #Posicion="ngModel" [(ngModel)]="employeeService.selectedEmployee.posicion"placeholder="Posicion" required>
+          <div class="validation-error" *ngIf="Posicion.invalid && Posicion.touched">Campo Requerido.</div>
+      
+          </div>
+          <div class="form-group col-md-6">
+            <input class="form-control" name="oficina" #Oficina="ngModel" [(ngModel)]="employeeService.selectedEmployee.oficina"placeholder="Oficina" required>
+            <div class="validation-error" *ngIf="Oficina.invalid && Oficina.touched">Campo Requerido.</div>
+        
+            </div>
+          <!-- Botones-->
+          <div class="form-group col-md-8">
+          <button [disabled]="!employeeForm.valid" type="submit" class="btn btn-lg btn-block btn-info"> <i class="fa fa-floppy-o"></i> Aceptar</button> 
+          </div>
+            <div class="form-group col-md-4">
+              <button  type="button" class="btn btn-lg btn-block btn-secondary"(click)="resetForm(employeeForm)"><i class="fa fa-repeat"></i> Reset</button> 
+            </div>
+  </div>
+</form>
